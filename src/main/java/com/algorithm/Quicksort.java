@@ -1,4 +1,4 @@
-package com.algorithms;
+package com.algorithm;
 
 import java.util.Collections;
 import java.util.LinkedList;

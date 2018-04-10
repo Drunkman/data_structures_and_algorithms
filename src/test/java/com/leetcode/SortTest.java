@@ -1,5 +1,6 @@
-package com.algorithms;
+package com.leetcode;
 
+import com.algorithm.Sort;
 import junit.framework.TestCase;
 
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ public class SortTest extends TestCase {
     public void setUp() throws Exception {
         super.setUp();
         sort = new Sort();
-        list = new ArrayList<>();
+        list = new ArrayList();
         Random random = new Random();
         for(int i = 0; i < 100000000; i++) {
             list.add(random.nextInt(100000000));

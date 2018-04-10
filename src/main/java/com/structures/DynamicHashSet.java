@@ -17,7 +17,6 @@ public class DynamicHashSet<E> {
         Node(int profix, short pLen) {
             this.profix = profix;
             this.pLen = pLen;
-            list = new LinkedList<>();
         }
     }
 
