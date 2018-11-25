@@ -1,5 +1,6 @@
 package com.leetcode
 
+@Suppress("unused")
 class RangeSumQueryImmutable(nums: IntArray) {
 
     private var sums: IntArray

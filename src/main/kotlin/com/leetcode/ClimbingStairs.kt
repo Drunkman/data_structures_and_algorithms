@@ -1,5 +1,6 @@
 package com.leetcode
 
+@Suppress("unused")
 class ClimbingStairs {
     fun climbStairs(n: Int): Int {
         var answer = 1

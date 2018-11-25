@@ -1,7 +1,6 @@
 package com.leetcode
 
-import java.util.*
-
+@Suppress("unused")
 class LongestPalindromicSubstring {
     fun longestPalindrome(s: String): String {
         val n = s.length
@@ -32,7 +31,7 @@ class LongestPalindromicSubstring2 {
         val str = s.fold("", { result, char ->
             result.plus("#$char")
         }).plus("#")
-        var arr = Array(str.length) { 1 }
+        val arr = Array(str.length) { 1 }
         var maxRight = 0
         var maxMiddle = 0
         var max = 0
