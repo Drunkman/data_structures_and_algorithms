@@ -5,6 +5,7 @@ class StringToInteger2 {
         var s = str.trim()
         if(s.isEmpty()) return 0
         val firstChar = s[0]
+        val maxIntDiv10 = Int.MAX_VALUE / 10
         if(s[0] == '-' || s[0] == '+') {
             s = s.substring(1)
         }
@@ -14,7 +15,7 @@ class StringToInteger2 {
             if(n < 0 || n > 9) {
                 break
             }
-            if(result < Int.MAX_VALUE / 10 || result == Int.MAX_VALUE / 10 && n <= Int.MAX_VALUE % 10) {
+            if(result < maxIntDiv10 || result == maxIntDiv10 && n <= 7) {
                 result = result * 10 + n
             } else {
                 return if(firstChar == '-') Int.MIN_VALUE else Int.MAX_VALUE
