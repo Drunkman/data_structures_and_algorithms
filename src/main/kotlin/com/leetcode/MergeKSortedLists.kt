@@ -1,7 +1,19 @@
 package com.leetcode
 
 @Suppress("unused")
-class MergeTwoSortedLists {
+class MergeKSortedLists {
+    fun mergeKLists(lists: Array<ListNode?>): ListNode? {
+        if(lists.isEmpty()) return null
+        if(lists.size == 1) return lists[0]
+        return dive(lists, 0, lists.size - 1)
+    }
+
+    fun dive(lists: Array<ListNode?>, l: Int, r: Int): ListNode? {
+        if (r - l == 1) return mergeTwoLists(lists[l], lists[r])
+        if (l == r) return lists[l]
+        val mid = (r + l) / 2
+        return mergeTwoLists(dive(lists, l, mid), dive(lists, mid + 1, r))
+    }
 
     fun mergeTwoLists(l1: ListNode?, l2: ListNode?): ListNode? {
         if (l1 == null && l2 == null) return null
