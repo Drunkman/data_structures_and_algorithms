@@ -1,5 +1,6 @@
 package com.leetcode
 
+@Suppress("unused")
 class DivideTwoIntegers {
     fun divide(dividend: Int, divisor: Int): Int {
         if (divisor == 1) return dividend
