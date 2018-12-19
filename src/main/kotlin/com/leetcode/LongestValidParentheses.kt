@@ -3,33 +3,19 @@ package com.leetcode
 class LongestValidParentheses {
     fun longestValidParentheses(s: String): Int {
         var ans = 0
-        var count = 0
-        val list = mutableListOf<Char>()
-        var acc = 0
-        s.forEach {
-            if(it == '(') {
-                list.add(it)
-                count++
-            } else {
-                if(list.isNotEmpty()) {
-                    list.removeAt(list.size - 1)
-                    count++
-                } else {
-                    count = 0
-                    acc = 0
-                }
-                if(list.isEmpty()) {
-                    count += acc
-                    acc = count
-                    if(count > ans) ans = count
-                    count = 0
+        val balances = Array(s.length + 1) {0}
+        for(i in 0 until s.length) {
+            if(s[i] == '(') {
+                balances[i] = 0
+                for(j in i + 1 until s.length + 1) {
+                    balances[j] = balances[j - 1] + if (s[j - 1] == '(') 1 else -1
+                    if(balances[j] < 0) break
+                    if(balances[j] == 0 && j - i > ans){
+                        ans = j - i
+                    }
                 }
             }
         }
-        if(list.isNotEmpty()) {
-            count -= list.size
-        }
-        if(count > ans) ans = count
         return ans
     }
 }
