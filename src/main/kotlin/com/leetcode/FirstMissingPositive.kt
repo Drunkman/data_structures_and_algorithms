@@ -3,7 +3,7 @@ package com.leetcode
 class FirstMissingPositive {
     fun firstMissingPositive(nums: IntArray): Int {
         if(nums.isEmpty()) return 1
-        val list = nums.distinct().sorted()
+        val list = nums.sorted()
         var offset = -1
         for(i in 0 until list.size) {
             if(list[i] <= 0) {
@@ -11,6 +11,9 @@ class FirstMissingPositive {
                 continue
             }
             if(list[i] == i - offset) {
+                continue
+            } else if(i > 0 && list[i] == list[i -1]){
+                offset++
                 continue
             }
             return i - offset
