@@ -28,15 +28,15 @@ class LongestPalindromicSubstring {
 
 class LongestPalindromicSubstring2 {
     fun longestPalindrome(s: String): String {
-        val str = s.fold("", { result, char ->
+        val str = s.fold("") { result, char ->
             result.plus("#$char")
-        }).plus("#")
+        }.plus("#")
         val arr = Array(str.length) { 1 }
         var maxRight = 0
         var maxMiddle = 0
         var max = 0
 
-        str.forEachIndexed({ i, char ->
+        str.forEachIndexed { i, _ ->
             if (maxRight > i) arr[i] = Math.min(arr[maxMiddle * 2 - i], maxRight - i)
             while (i + arr[i] < str.length && i - arr[i] >= 0 && str[i + arr[i]] == str[i - arr[i]]) arr[i]++
             if(maxRight < i +  arr[i] - 1){
@@ -46,7 +46,7 @@ class LongestPalindromicSubstring2 {
                     max = i
                 }
             }
-        })
+        }
 
         return str.substring(max - arr[max] + 1, max + arr[max] - 1).replace("#", "")
     }

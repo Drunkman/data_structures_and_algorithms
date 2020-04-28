@@ -6,7 +6,7 @@ fun maxProfit(prices: IntArray): Int {
     var temp = 0
     prices.mapIndexed { index, i ->
         if (index == 0) 0 else i - prices[index - 1]
-    }.mapIndexed { index, i ->
+    }.mapIndexed { _, i ->
         if(temp + i > 0) {
             temp += i
         } else {
